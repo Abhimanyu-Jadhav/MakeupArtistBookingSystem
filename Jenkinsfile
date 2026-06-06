@@ -1,49 +1,26 @@
-pipeline{
+pipeline {
     agent any
 
-     environment {
+    environment {
         IMAGE_NAME = "abhijadhav2011/makeup-artist"
         CONTAINER_NAME = "makeup-artist-app"
     }
 
-
-    stages{
-        stage('git checkout'){
-            steps{
-                git branch :'main',
-                url:'https://github.com/Abhimanyu-Jadhav/MakeupArtistBookingSystem.git'
-
-            }
-        }
-        stage('Build'){
-            steps{
-
-                sh 'mvn clean package'
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Abhimanyu-Jadhav/MakeupArtistBookingSystem.git'
             }
         }
 
-        stage('Compile'){
-            steps{
-
-                sh 'mvn compile'
-            }
-        }
-        stage('Test'){
-            steps{
-
-                sh 'mvn test'
+        stage('Build') {
+            steps {
+                sh 'mvn -B clean package'
             }
         }
 
-        stage('Package'){
-            steps{
-
-                sh 'mvn package'
-            }
-
-        }
-        stage('Build docker Image'){
-            steps{
+        stage('Build Docker Image') {
+            steps {
                 sh 'docker build -f Dockerfile -t ${IMAGE_NAME}:latest .'
             }
         }
@@ -64,20 +41,19 @@ pipeline{
             }
         }
 
-        stage('Push Image on docker hub'){
-            steps{
-
+        stage('Push Image to Docker Hub') {
+            steps {
                 sh 'docker push ${IMAGE_NAME}:latest'
             }
         }
-        post {
+    }
+
+    post {
         success {
             echo 'Pipeline completed successfully'
         }
         failure {
             echo 'Pipeline failed'
         }
-
-            }
-        }
+    }
 }
