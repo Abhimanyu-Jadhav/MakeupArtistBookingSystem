@@ -13,8 +13,6 @@ pipeline{
             steps{
 
                 sh 'mvn clean package'
-                
-
             }
         }
 
@@ -22,15 +20,12 @@ pipeline{
             steps{
 
                 sh 'mvn compile'
-
             }
         }
         stage('Test'){
             steps{
 
                 sh 'mvn test'
-
-
             }
         }
 
