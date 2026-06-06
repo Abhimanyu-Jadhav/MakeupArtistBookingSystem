@@ -44,8 +44,8 @@ pipeline{
         }
         stage('Build docker Image'){
             steps{
-            sh 'docker build -t ${IMAGE_NAME}:latest'
-        }
+                sh 'docker build -f Dockerfile -t ${IMAGE_NAME}:latest .'
+            }
         }
 
     }
