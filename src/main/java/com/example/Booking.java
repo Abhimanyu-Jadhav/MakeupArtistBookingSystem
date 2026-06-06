@@ -1,3 +1,5 @@
+package com.example;
+
 public class Booking {
 
     private int bookingId;

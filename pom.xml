@@ -14,9 +14,6 @@
     </properties>
 
     <build>
-        <!-- Compile Java files that live in the repository root (default package) -->
-        <sourceDirectory>${project.basedir}</sourceDirectory>
-
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -36,7 +33,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>MakeupArtistApp</mainClass>
+                            <mainClass>com.example.MakeupArtistApp</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
