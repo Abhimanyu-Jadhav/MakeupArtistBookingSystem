@@ -7,6 +7,9 @@ public class Booking {
     private String serviceName;
     private double amount;
 
+    public Booking() {
+    }
+
     public Booking(int bookingId, String customerName, String serviceName, double amount) {
         this.bookingId = bookingId;
         this.customerName = customerName;
@@ -18,16 +21,32 @@ public class Booking {
         return bookingId;
     }
 
+    public void setBookingId(int bookingId) {
+        this.bookingId = bookingId;
+    }
+
     public String getCustomerName() {
         return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
     public String getServiceName() {
         return serviceName;
     }
 
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
+    }
+
     public double getAmount() {
         return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
 
     @Override
