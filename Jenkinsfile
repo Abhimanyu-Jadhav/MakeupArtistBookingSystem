@@ -46,8 +46,8 @@ pipeline {
                 sh 'docker push ${IMAGE_NAME}:latest'
             }
         }
-    
-stage('Deploy Container') {
+
+        stage('Deploy Container') {
             steps {
                 sh '''
                 docker stop ${CONTAINER_NAME} || true
@@ -62,7 +62,7 @@ stage('Deploy Container') {
                 '''
             }
         }
-
+    }
     post {
         success {
             echo 'Pipeline completed successfully'
