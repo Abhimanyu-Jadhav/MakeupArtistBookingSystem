@@ -1,6 +1,12 @@
 pipeline{
     agent any
 
+     environment {
+        IMAGE_NAME = "abhijadhav2011/makeup-artist"
+        CONTAINER_NAME = "makeup-artist-app"
+    }
+
+
     stages{
         stage('git checkout'){
             steps{
@@ -35,6 +41,10 @@ pipeline{
                 sh 'mvn package'
             }
 
+        }
+        stage('Build docker Image'){
+
+            sh 'docker build -t ${IMAGE_NAME}:latest'
         }
 
     }
