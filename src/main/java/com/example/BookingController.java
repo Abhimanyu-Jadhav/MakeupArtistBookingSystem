@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -23,7 +24,7 @@ public class BookingController {
         model.addAttribute("booking", new Booking());
         model.addAttribute("bookings", bookingService.getAllBookings());
         model.addAttribute("totalRevenue", bookingService.getTotalRevenue());
-        model.addAttribute("searchResults", List.of());
+        model.addAttribute("searchResults", Collections.emptyList());
         return "index";
     }
 
