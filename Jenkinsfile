@@ -4,8 +4,7 @@ pipeline{
     stages{
         stage('git checkout'){
             steps{
-                git branch :'main'
-
+                git branch :'main',
                 url:'https://github.com/Abhimanyu-Jadhav/MakeupArtistBookingSystem.git'
 
             }
