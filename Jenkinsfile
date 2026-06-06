@@ -46,7 +46,7 @@ pipeline {
                 sh 'docker push ${IMAGE_NAME}:latest'
             }
         }
-    }
+    
 stage('Deploy Container') {
             steps {
                 sh '''
