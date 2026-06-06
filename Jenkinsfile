@@ -70,6 +70,13 @@ pipeline{
                 sh 'docker push ${IMAGE_NAME}:latest'
             }
         }
+        post {
+        success {
+            echo 'Pipeline completed successfully'
+        }
+        failure {
+            echo 'Pipeline failed'
+        }
 
             }
         }
