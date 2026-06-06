@@ -64,6 +64,13 @@ pipeline{
             }
         }
 
+        stage('Push Image on docker hub'){
+            steps{
+
+                sh 'docker push ${IMAGE_NAME}:latest'
+            }
+        }
+
             }
         }
     
